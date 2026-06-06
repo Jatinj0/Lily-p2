@@ -491,6 +491,94 @@ button:hover{
     background:#ffd86b;
 }
 
+/* MOON */
+
+.moon .icon{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#fff1b8;
+
+    position:relative;
+}
+
+.moon .icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:white;
+
+    left:20px;
+    top:0;
+}
+
+/* HEART */
+
+.heart .icon{
+
+    width:60px;
+    height:60px;
+
+    background:#ff8db7;
+
+    transform:rotate(-45deg);
+}
+
+.heart .icon::before,
+.heart .icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    background:#ff8db7;
+
+    border-radius:50%;
+}
+
+.heart .icon::before{
+
+    top:-30px;
+    left:0;
+}
+
+.heart .icon::after{
+
+    left:30px;
+    top:0;
+}
+
+/* DIAMOND */
+
+.diamond .icon{
+
+    width:70px;
+    height:70px;
+
+    background:#c9f2ff;
+
+    clip-path:polygon(
+        50% 0%,
+        100% 35%,
+        75% 100%,
+        25% 100%,
+        0% 35%
+    );
+}
+
 /* ==========================
    FLOWER BLOOM
 ========================== */
@@ -1057,5 +1145,51 @@ button:hover{
         transform:
         translateY(0);
 
+    }
+}
+
+/* ==========================
+   TREASURE WORDS
+========================== */
+
+.treasure-word{
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    color:#7b3f75;
+
+    margin:15px 0;
+
+    opacity:0;
+
+    animation:
+    flyOut 2s forwards;
+}
+
+@keyframes flyOut{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(120px)
+        scale(.2);
+    }
+
+    50%{
+
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
     }
 }

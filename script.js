@@ -5,7 +5,7 @@
 let musicStarted = false;
 let discoveredItems = 0;
 
-const totalItems = 5;
+const totalItems = 8;
 
 /* ==================================
    OPEN KINGDOM
@@ -50,7 +50,7 @@ function startMusic() {
    SCENE TRANSITIONS
 ================================== */
 
-function nextScene(sceneNumber) {
+/*function nextScene(sceneNumber) {
 
     const current =
     document.querySelector(".scene.active");
@@ -61,6 +61,39 @@ function nextScene(sceneNumber) {
     );
 
     if (!next) return;
+
+    current.classList.remove("active");
+
+    setTimeout(() => {
+
+        next.classList.add("active");
+
+        handleSceneEvents(sceneNumber);
+
+    }, 500);
+}*/
+
+function nextScene(sceneNumber) {
+
+    console.log("Moving to scene:", sceneNumber);
+
+    const current =
+    document.querySelector(".scene.active");
+
+    const next =
+    document.getElementById(
+        "scene" + sceneNumber
+    );
+
+    if (!next) {
+
+        console.log(
+            "Scene not found:",
+            "scene" + sceneNumber
+        );
+
+        return;
+    }
 
     current.classList.remove("active");
 
@@ -181,29 +214,74 @@ function revealMessage(element) {
    TREASURE CHEST
 ================================== */
 
+/* ==================================
+   TREASURE CHEST
+================================== */
+
 function openTreasure() {
 
     const chest =
-    document.getElementById(
-        "treasureChest"
-    );
+    document.getElementById("treasureChest");
 
-    chest.classList.add(
-        "chest-open"
-    );
+    if(chest){
+        chest.classList.add("chest-open");
+    }
 
     burstParticles();
 
-    setTimeout(() => {
+    const container =
+    document.getElementById("treasureContent");
 
-        document
-        .getElementById(
-            "treasureContent"
-        )
-        .classList
-        .remove("hidden");
+    if(!container) return;
 
-    },1200);
+    container.innerHTML = "";
+
+    const words = [
+
+        "Wonderful Friend",
+        "Strongest Daughter",
+        "Kindest Heart",
+        "Adorable Partner",
+        "Beautiful Soul",
+        "Queen Of Courage",
+        "Never Gives Up",
+        "Forever Lily"
+
+    ];
+
+    words.forEach((word,index)=>{
+
+        setTimeout(()=>{
+
+            const text =
+            document.createElement("div");
+
+            text.className =
+            "treasure-word";
+
+            text.innerText =
+            word;
+
+            container.appendChild(text);
+
+        }, index * 700);
+
+    });
+
+    setTimeout(()=>{
+
+        const btn =
+        document.createElement("button");
+
+        btn.innerText =
+        "Continue";
+
+        btn.onclick = () =>
+        nextScene(6);
+
+        container.appendChild(btn);
+
+    }, 6500);
 }
 
 /* ==================================
