@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Kingdom of Lily</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Quicksand:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="magicParticles"></div>
+
+<!-- ================================= -->
+<!-- SCENE 1 -->
+<!-- ================================= -->
+
+<section class="scene active" id="scene1">
+
+    <div class="castle-sky"></div>
+
+    <div class="castle-container">
+
+        <div class="castle-gate">
+
+            <div class="gate left-gate"></div>
+            <div class="gate right-gate"></div>
+
+        </div>
+
+    </div>
+
+    <div class="story-card">
+
+        <div class="chapter-label">
+            THE KINGDOM OF LILY
+        </div>
+
+        <h1>
+            Welcome, Traveler
+        </h1>
+
+        <p>
+            Beyond the clouds...
+        </p>
+
+        <p>
+            Beyond the mountains...
+        </p>
+
+        <p>
+            There exists a kingdom unlike any other.
+        </p>
+
+        <p>
+            A kingdom built from kindness,
+            courage,
+            strength,
+            and a little bit of magic.
+        </p>
+
+        <button onclick="openKingdom()">
+            Open The Gates
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- SCENE 2 -->
+<!-- ================================= -->
+
+<section class="scene" id="scene2">
+
+    <div class="garden-background"></div>
+
+    <div class="story-card">
+
+        <div class="chapter-label">
+            CHAPTER ONE
+        </div>
+
+        <h1>
+            Meet Lily
+        </h1>
+
+        <p>
+            In a world full of ordinary stories...
+        </p>
+
+        <p>
+            lived a girl who was anything but ordinary.
+        </p>
+
+        <p>
+            Her name was Raaga.
+        </p>
+
+        <p>
+            Though some people lovingly called her...
+        </p>
+
+        <h2 class="special-name">
+            Lily
+        </h2>
+
+        <button onclick="nextScene(3)">
+            Continue The Story
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- SCENE 3 -->
+<!-- ================================= -->
+
+<section class="scene" id="scene3">
+
+    <div class="story-card wide-card">
+
+        <div class="chapter-label">
+            GARDEN OF WONDERS
+        </div>
+
+        <h1>
+            Discover The Magic
+        </h1>
+
+        <p>
+            Explore each magical object to discover
+            what makes Lily so special.
+        </p>
+
+        <div class="magic-grid">
+
+            <div class="magic-item flower" onclick="revealMessage(this)">
+                <div class="icon"></div>
+                <span>Beautiful Inside & Out</span>
+            </div>
+
+            <div class="magic-item donut" onclick="revealMessage(this)">
+                <div class="icon"></div>
+                <span>The Sweetest Soul</span>
+            </div>
+
+            <div class="magic-item crown" onclick="revealMessage(this)">
+                <div class="icon"></div>
+                <span>Queen Of Her Story</span>
+            </div>
+
+            <div class="magic-item butterfly" onclick="revealMessage(this)">
+                <div class="icon"></div>
+                <span>Always Growing</span>
+            </div>
+
+            <div class="magic-item star" onclick="revealMessage(this)">
+                <div class="icon"></div>
+                <span>A Light For Others</span>
+            </div>
+
+        </div>
+
+        <button id="discoverBtn" class="hidden"
+        onclick="nextScene(4)">
+            Continue
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- SCENE 4 -->
+<!-- ================================= -->
+
+<section class="scene storm-scene" id="scene4">
+
+    <div class="storm-clouds"></div>
+
+    <div class="story-card">
+
+        <div class="chapter-label">
+            THE GREAT STORM
+        </div>
+
+        <h1>
+            Every Kingdom Faces Storms
+        </h1>
+
+        <p>
+            Some storms arrive in the sky.
+        </p>
+
+        <p>
+            Others arrive quietly inside the heart.
+        </p>
+
+        <div class="growth-area">
+
+            <div id="seed"></div>
+
+            <div id="flowerBloom">
+                <div class="stem"></div>
+                <div class="petal p1"></div>
+                <div class="petal p2"></div>
+                <div class="petal p3"></div>
+                <div class="petal p4"></div>
+                <div class="center"></div>
+            </div>
+
+        </div>
+
+        <p class="highlight-line">
+            Yet Lily Kept Blooming
+        </p>
+
+        <button onclick="nextScene(5)">
+            Continue
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- SCENE 5 -->
+<!-- ================================= -->
+
+<section class="scene" id="scene5">
+
+    <div class="story-card">
+
+        <div class="chapter-label">
+            TREASURE ROOM
+        </div>
+
+        <h1>
+            Open The Royal Treasure
+        </h1>
+
+        <div id="treasureChest">
+
+            <div class="chest-lid"></div>
+            <div class="chest-base"></div>
+
+        </div>
+
+        <button onclick="openTreasure()">
+            Open Treasure Chest
+        </button>
+
+        <div id="treasureContent" class="hidden">
+
+            <p>Wonderful Friend</p>
+            <p>Strongest Daughter</p>
+            <p>Kindest Heart</p>
+            <p>Adorable Partner</p>
+            <p>Beautiful Soul</p>
+
+            <button onclick="nextScene(6)">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- SCENE 6 -->
+<!-- ================================= -->
+
+<section class="scene" id="scene6">
+
+    <div class="letter-paper">
+
+        <div class="chapter-label">
+            ROYAL LETTER
+        </div>
+
+        <h1>
+            My Dear Lily
+        </h1>
+
+        <p>
+            I don't think you realize how extraordinary you are.
+        </p>
+
+        <p>
+            You have carried burdens quietly.
+        </p>
+
+        <p>
+            You have fought battles gracefully.
+        </p>
+
+        <p>
+            Yet somehow...
+        </p>
+
+        <p>
+            You still choose kindness.
+        </p>
+
+        <p>
+            Beautiful like a Lily.
+        </p>
+
+        <p>
+            Strong like Titanium.
+        </p>
+
+        <p>
+            Soft like a Lotus.
+        </p>
+
+        <p>
+            And someone I will always be proud of.
+        </p>
+
+        <button onclick="nextScene(7)">
+            One Last Chapter
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================================= -->
+<!-- FINAL SCENE -->
+<!-- ================================= -->
+
+<section class="scene final-scene" id="scene7">
+
+    <div id="starfield"></div>
+
+    <div class="final-content">
+
+        <h2>
+            Out of all the stars in the sky...
+        </h2>
+
+        <h2>
+            this one is my favorite.
+        </h2>
+
+        <div id="raagaConstellation">
+
+            <span>R</span>
+            <span>A</span>
+            <span>A</span>
+            <span>G</span>
+            <span>A</span>
+
+        </div>
+
+        <div class="big-message">
+
+            I AM PROUD OF YOU
+
+        </div>
+
+        <button onclick="showGift()">
+        Open Your Gift
+        </button>
+
+        <div id="giftMessage" class="hidden">
+
+            <p>
+                If life ever feels heavy...
+            </p>
+
+            <p>
+                Come back here.
+            </p>
+
+            <p>
+                Read this again.
+            </p>
+
+            <p>
+                And remember...
+            </p>
+
+            <p>
+                You never have to carry everything alone.
+            </p>
+
+            <p>
+                Because I will always be cheering for you.
+            </p>
+
+            <div class="signature">
+
+                For Lily
+
+                <br>
+
+                The Princess Who Never Gave Up
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
